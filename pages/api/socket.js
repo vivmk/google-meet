@@ -5,12 +5,7 @@ const SocketHandler = (req, res) => {
   if (res.socket.server.io) {
     console.log("socket already running");
   } else {
-    const io = new Server(res.socket.server, {
-      cors: {
-        origin: "https://google-meet-nine.vercel.app",
-        credentials: true,
-      },
-    });
+    const io = new Server(res.socket.server);
     res.socket.server.io = io;
 
     io.on("connection", (socket) => {
