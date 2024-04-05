@@ -13,9 +13,7 @@ export const SocketProvider = (props) => {
   const [socket, setSocket] = useState(null);
 
   useEffect(() => {
-    const connection = io("https://google-meet-nine.vercel.app", {
-      transports: ["websocket"],
-    });
+    const connection = io();
     console.log("socket connection", connection);
     setSocket(connection);
   }, []);
